@@ -1,0 +1,29 @@
+mat-icon {
+  border: 0px;
+  color: blueviolet;
+  margin: 0px;
+  padding: 0px;
+}
+
+button[mat-mini-fab] {
+  background-color: white;
+}
+
+mat-list-item {
+
+  margin: 10px 0px;
+  max-width: 70px;
+}
+
+mat-list-item:nth-child(1) {
+  margin: 0px
+}
+
+.primary {
+  background-color: blueviolet;
+}
+
+.add-icon {
+  font-size: 25px;
+  font-weight: bold;
+}

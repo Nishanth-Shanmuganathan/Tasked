@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0px;
+  font-size: 14px;
+  font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+* {
+  font-family: cursive;
+  font-family: 'Josefin Sans',
+    sans-serif;
+  font-size: medium;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.primary {
+  background-color: blueviolet !important;
+  color: white !important;
+}
+
+
+.accent {
+  background-color: #ff0055;
+}
+
+mat-icon {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 125px;
+}
+
+.txt-danger {
+  color: red;
+}
+
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: blueviolet !important;
+}

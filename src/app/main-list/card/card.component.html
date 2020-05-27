@@ -1,0 +1,68 @@
+<div class="main" fxLayoutAlign="center center">
+  <mat-card
+    fxFlex.xs="90"
+    fxFlex.sm="80"
+    fxFlex.md="70"
+    fxFlex.lg="60"
+    fxFlex.xl="50"
+    fxLayoutGap="10px"
+    fxLayout="column"
+    fxLayoutAlign="center start"
+  >
+    <button mat-icon-button class="close"><mat-icon>close</mat-icon></button>
+    <div
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutGap="10px"
+      fxLayoutAlign="space-between center"
+      style="width: 100%;"
+    >
+      <mat-card-header
+        fxLayoutGap="2%"
+        fxLayoutAlign="row"
+        fxLayoutAlign.xs="column"
+        fxLayoutAlign="start stretch"
+      >
+        <span fxHide.xs matCardAvatar><mat-icon>whatshot</mat-icon></span>
+        <span fxHide.xs matCardAvatar><mat-icon>work</mat-icon></span>
+        <mat-card-title>
+          Wake up early from now onwards i ll be no fucking crazy
+        </mat-card-title>
+
+        <mat-card-subtitle fxHide.gt-xs>Priority , Label </mat-card-subtitle>
+      </mat-card-header>
+    </div>
+    <mat-card-content
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-sm="row wrap"
+      fxLayoutAlign.gt-sm="space-between center"
+    >
+      <p fxFlex fxFlex.gt-sm="68">
+        Please wake up early in the morning Please wake up early in the morning
+        Please wake up early in the morning Please wake up early in the morning
+        Please wake up early in the morning
+      </p>
+
+      <mat-card-actions
+        fxFlex
+        fxFlex.gt-sm="30"
+        fxLayout.gt-sm="row"
+        fxLayout="row wrap"
+        fxLayoutAlign=" center center"
+      >
+        <button mat-raised-button class="primary">Completed</button>
+        <button mat-raised-button color="warn">Postpone</button>
+      </mat-card-actions>
+      <mat-progress-bar
+        fxFlex.gt-sm="100"
+        mode="determinate"
+        value="40"
+      ></mat-progress-bar>
+    </mat-card-content>
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="deadline">
+      <span fxFlex="50"><b>Deadline:</b> 123344</span>
+      <span fxFlex="50">2 days left</span>
+    </div>
+  </mat-card>
+</div>

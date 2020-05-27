@@ -1,0 +1,53 @@
+<mat-card fxFlex fxLayout="column" fxLayoutAlign="center center">
+  <mat-card-header fxFlex fxLayout="row" fxLayoutAlign="center center">
+    <img src="../../../assets/header/img2.JPG" alt="" />
+  </mat-card-header>
+  <mat-card-content fxFlex fxLayout="column" fxLayoutAlign.xs="center center">
+    <mat-list-item>
+      <h3>Username</h3>
+      <span>Nishantd Shanmuganatdan</span>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+    <mat-list-item>
+      <h3>Email Id</h3>
+      <span>Nishantd.shanmuganatdan.05@gmail.com</span>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+    <mat-list-item>
+      <h3>Tasks</h3>
+      <table fxFill>
+        <tr>
+          <td>Total Tasks</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Active Tasks</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Completed Tasks</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Postponed Tasks</td>
+          <td>50</td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+    <mat-list-item>
+      <h3>Overall Performance</h3>
+      <div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+          <mat-progress-spinner [value]="value"> </mat-progress-spinner>
+          <div
+            class="progress-indicator"
+            style="position: relative; top: -60px; left: 0px;"
+          >
+            {{ value }}%
+          </div>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-card-content>
+</mat-card>

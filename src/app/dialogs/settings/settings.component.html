@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title fxFlex fxLayoutAlign="start center">
+      <mat-icon>settings</mat-icon>
+      <h3>Settings</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <div mat-subheader><span>Notifications</span></div>
+      <mat-selection-list>
+        <mat-list-option>Make an alarm</mat-list-option>
+        <mat-list-option>Reach to inbox</mat-list-option>
+        <mat-list-option>Just pop it up</mat-list-option>
+      </mat-selection-list>
+      <div mat-subheader><span>Timings</span></div>
+      <mat-list-item>
+        <form>
+          <mat-form-field>
+            <mat-label>Hrs..</mat-label>
+            <input matInput type="number" min="0" max="23" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Mins..</mat-label>
+            <input matInput type="number" min="0" max="59" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Secs..</mat-label>
+            <input matInput type="number" min="0" max="59" />
+          </mat-form-field>
+          <button mat-raised-button class="primary">Okay!!</button>
+        </form>
+      </mat-list-item>
+      <div mat-subheader><span>Theme</span></div>
+      <mat-list-item>
+        <div
+          fxFlex="50"
+          fxFlex.lt-md="100"
+          fxLayout="row"
+          fxLayoutAlign="space-evenly center"
+        >
+          <button mat-icon-button>
+            <mat-icon class="red">fiber_manual_record</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon class="green">fiber_manual_record</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon class="blue">fiber_manual_record</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon class="violet">fiber_manual_record</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon class="pink">fiber_manual_record</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+      <div mat-subheader><span>Message</span></div>
+      <mat-list-item>
+        <mat-slide-toggle
+          ><span
+            >Get updated with our updates via mail...</span
+          ></mat-slide-toggle
+        >
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

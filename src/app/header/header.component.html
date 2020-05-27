@@ -1,0 +1,50 @@
+<mat-toolbar class="primary" fxLayoutAlign="space-between center">
+  <div class="brand" fxLayoutAlign="center center">
+    <img class="logo" src="../../assets/header/tasked_logo.png" alt="" />
+  </div>
+  <div class="profile" fxLayoutAlign="center center">
+    <img
+      class="profile-pic"
+      src="../../assets/header/img2.JPG"
+      [matMenuTriggerFor]="menu"
+      [matTooltip]="'Menu'"
+      [matTooltipPosition]="'left'"
+    />
+    <mat-menu #menu="matMenu" class="customize">
+      <button
+        fxFill
+        fxLayoutAlign="start center"
+        mat-flat-button
+        (click)="openProfileDialog()"
+      >
+        <mat-icon>perm_identity</mat-icon>
+        <span>Your Profile</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button
+        fxFill
+        fxLayoutAlign="start center"
+        mat-flat-button
+        (click)="openSettingsDialog()"
+      >
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button
+        fxFill
+        fxLayoutAlign="start center"
+        mat-flat-button
+        (click)="openContactDialog()"
+      >
+        <mat-icon>local_phone</mat-icon>
+        <span>Contact Us</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button fxFill fxLayoutAlign="start center" mat-flat-button>
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,148 @@
+<mat-toolbar class="wrapper" fxLayout="row wrap" fxLayoutAlign="center center">
+  <form
+    fxFlex
+    fxLayoutAlign="end center"
+    fxLayoutAlign.xs="space-around center"
+    class="search-bar"
+    (ngSubmit)="searchTasks()"
+  >
+    <mat-form-field>
+      <mat-label fxFlex.xs="70">Search...</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="search"
+        name="search"
+        placeholder="Enter project title..."
+      />
+    </mat-form-field>
+    <button fxFlex.xs="30" mat-raised-button type="submit">
+      <mat-icon>search</mat-icon>
+      <span>Search</span>
+    </button>
+  </form>
+  <div
+    fxFlex
+    fxLayoutAlign="start center"
+    fxLayoutAlign.xs="space-around center"
+  >
+    <button
+      fxFlex.xs="30"
+      mat-raised-button
+      type="button"
+      [mat-menu-trigger-for]="filter"
+    >
+      <mat-icon>filter_list</mat-icon>
+      <span>Filter</span>
+    </button>
+    <button
+      fxFlex.xs="30"
+      mat-raised-button
+      type="button"
+      [matMenuTriggerFor]="sort"
+    >
+      <mat-icon>sort</mat-icon>
+      <span>Sort</span>
+    </button>
+    <button
+      fxFlex.xs="30"
+      mat-raised-button
+      type="button"
+      (click)="resetSearchCredentials()"
+    >
+      <mat-icon>cached</mat-icon>
+      <span>Reset</span>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #filter="matMenu" class="customize">
+  <button mat-menu-item [matMenuTriggerFor]="date">
+    <span>Deadline</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item [matMenuTriggerFor]="priority">
+    <span>
+      Priority
+    </span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item [matMenuTriggerFor]="label">
+    <span>
+      Label
+    </span>
+  </button>
+  <mat-divider></mat-divider>
+</mat-menu>
+
+<mat-menu #date="matMenu" class="customize">
+  <form
+    class="dateForm"
+    (click)="stopPropagation($event)"
+    style="width: 150px;"
+  >
+    <mat-form-field class="center">
+      <mat-label>From</mat-label>
+      <input
+        matInput
+        [(ngModel)]="filterDeadlineFrom"
+        name="filterDeadlineFrom"
+        [matDatepicker]="picker1"
+        readonly
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker
+        class="primary"
+        #picker1
+        disabled="false"
+      ></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="center">
+      <mat-label>To</mat-label>
+      <input
+        matInput
+        [(ngModel)]="filterDeadlineTo"
+        name="filterDeadlineTo"
+        [matDatepicker]="picker2"
+        readonly
+        [min]="filterDeadlineFrom"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+    </mat-form-field>
+  </form>
+</mat-menu>
+<mat-menu
+  class="customize"
+  #priority="matMenu"
+  (click)="stopPropagation($event)"
+>
+  <form (click)="stopPropagation($event)">
+    <mat-selection-list [(ngModel)]="filterPriority" name="filterPriority">
+      <mat-list-option value="top">Top</mat-list-option>
+      <mat-list-option value="moderate">Moderate</mat-list-option>
+      <mat-list-option value="least">Least</mat-list-option>
+    </mat-selection-list>
+  </form>
+</mat-menu>
+
+<mat-menu class="customize" #label="matMenu">
+  <form (click)="stopPropagation($event)">
+    <mat-selection-list [(ngModel)]="filterLabel" name="filterLabel">
+      <mat-list-option value="personal">Personal</mat-list-option>
+      <mat-list-option value="work">Work</mat-list-option>
+      <mat-list-option value="shopping">Shopping</mat-list-option>
+      <mat-list-option value="others">Others</mat-list-option>
+    </mat-selection-list>
+  </form>
+</mat-menu>
+
+<mat-menu class="customize" #sort="matMenu" (click)="stopPropagation($event)">
+  <form (click)="stopPropagation($event)">
+    <mat-selection-list [(ngModel)]="sortCredentials" name="sortCredentials">
+      <mat-list-option value="deadline">Deadline</mat-list-option>
+      <mat-list-option value="priority">Priority</mat-list-option>
+      <mat-list-option value="label">Label</mat-list-option>
+    </mat-selection-list>
+  </form>
+</mat-menu>

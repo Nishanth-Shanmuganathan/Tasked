@@ -1,0 +1,38 @@
+<mat-list>
+  <mat-list-item>
+    <button
+      mat-mini-fab
+      [matTooltip]="'Add a new task'"
+      [matTooltipPosition]="'right'"
+    >
+      <mat-icon class="add-icon" (click)="openAddDialog()">add</mat-icon>
+    </button>
+  </mat-list-item>
+  <mat-list-item>
+    <button
+      mat-mini-fab
+      [matTooltip]="'Dashboard'"
+      [matTooltipPosition]="'right'"
+    >
+      <mat-icon>dashboard</mat-icon>
+    </button>
+  </mat-list-item>
+  <mat-list-item>
+    <button
+      mat-mini-fab
+      [matTooltip]="'Today tasks'"
+      [matTooltipPosition]="'right'"
+    >
+      <mat-icon>today</mat-icon>
+    </button>
+  </mat-list-item>
+  <mat-list-item>
+    <button
+      mat-mini-fab
+      [matTooltip]="'Upcoming tasks'"
+      [matTooltipPosition]="'right'"
+    >
+      <mat-icon>event</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>

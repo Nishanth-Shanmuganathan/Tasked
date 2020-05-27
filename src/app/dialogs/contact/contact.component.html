@@ -1,0 +1,41 @@
+<mat-card fxFlex fxLayout="column">
+  <mat-card-header fxLayout="row">
+    <mat-card-title fxFlex fxLayoutAlign="start center">
+      <mat-icon>phone</mat-icon>
+      <h3>Contact the developer</h3>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content fxLayout="column" fxLayoutAlign="space-evenly center">
+    <form
+      fxFlex
+      fxLayout="column wrap"
+      fxLayoutGap="10px"
+      fxLayoutAlign="space-around center"
+    >
+      <mat-slide-toggle (change)="issues = !issues"
+        ><span>Having issues with app?</span></mat-slide-toggle
+      >
+      <div
+        *ngIf="issues"
+        fxFlex="60"
+        class="checkbox"
+        fxLayout="column"
+        fxLayoutAlign="space-between start"
+      >
+        <span> What kind of issues did you face?</span>
+        <mat-checkbox>Responsiveness Issues</mat-checkbox>
+        <mat-checkbox>Ui/Ux Issues</mat-checkbox>
+        <mat-checkbox>Functionality Issues</mat-checkbox>
+        <mat-checkbox>Insufficient functionalities</mat-checkbox>
+        <mat-checkbox>Others(if so please mention in comments)</mat-checkbox>
+      </div>
+      <mat-form-field>
+        <mat-label>Add your precious comments...</mat-label>
+        <textarea matInput placeholder="Help us improve..."></textarea>
+      </mat-form-field>
+      <button mat-raised-button class="primary">Comment!!</button>
+    </form>
+    <img *ngIf="!issues" src="../../../assets/contact/handshake.jpg" alt="" />
+  </mat-card-content>
+</mat-card>

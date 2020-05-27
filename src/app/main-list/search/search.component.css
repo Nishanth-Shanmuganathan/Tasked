@@ -1,0 +1,60 @@
+:host {
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  height: fit-content;
+  padding: 1%;
+  background-color: rgba(137, 43, 226, 0.3);
+  box-shadow: 0px 0px 10px rgba(137, 43, 226, 0.3);
+}
+
+form button,
+div button {
+  margin: 5px;
+  padding: 0px;
+  color: white;
+}
+
+.search-bar button mat-icon,
+div button mat-icon {
+  margin: 0px;
+}
+
+.search-bar button span,
+div button span {
+  padding-right: 5px;
+}
+
+.dateForm mat-form-field {
+  max-width: 100px;
+  margin-left: 25px;
+}
+
+.search-bar mat-form-field {
+  padding: 0px 10px;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: large;
+}
+
+
+.search-bar button,
+div button {
+  background-color: blueviolet;
+}
+
+mat-menu {
+  background-color: blueviolet;
+}
+
+::ng-deep .customize {
+  background: rgb(234, 211, 255);
+}
+
+.primary {
+  background-color: blueviolet;
+  color: blueviolet;
+}

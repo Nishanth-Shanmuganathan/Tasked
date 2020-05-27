@@ -1,0 +1,23 @@
+mat-card {
+  min-width: 40vw;
+}
+
+img {
+  width: 20vw;
+  max-width: 150px;
+  border-radius: 125px;
+  border: 2px dashed rgba(137, 43, 226, 0.5);
+  cursor: pointer;
+}
+
+table th {
+  text-align: start;
+}
+
+mat-progress-spinner {
+  margin: auto;
+}
+
+.progress-indicator {
+  font-size: large;
+}
