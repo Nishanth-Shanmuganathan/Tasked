@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../model/user')
 
+const { TOKEN_GENERATOR } = require('./../env')
+
 exports.cors = (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -51,7 +53,7 @@ exports.register = (req, res, next) => {
       return fetchedUser.save()
     })
     .then(response => {
-      const token = jwt.sign({ email: fetchedUser.email, id: fetchedUser._id }, 'Max-the-length-max-the-security-so-we-are-keeping-this-thing-long-enough-to-irritate-the-black-hats')
+      const token = jwt.sign({ email: fetchedUser.email, id: fetchedUser._id }, TOKEN_GENERATOR)
       res.status(201).json({
         message: 'User created..',
         data: response,
@@ -87,7 +89,7 @@ exports.login = (req, res, next) => {
           message: "AUTHENTICATION_DENIED"
         })
       }
-      const token = jwt.sign({ email: fetchedUser.email, id: fetchedUser._id }, 'Max-the-length-max-the-security-so-we-are-keeping-this-thing-long-enough-to-irritate-the-black-hats')
+      const token = jwt.sign({ email: fetchedUser.email, id: fetchedUser._id }, TOKEN_GENERATOR)
       res.status(200).json({
         message: 'Logged in successfully',
         token: token,

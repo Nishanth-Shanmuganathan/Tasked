@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const taskController = require('./controller/task.controller')
 const authController = require('./controller/auth.controller');
 
+const { DB_LINK } = require('./env')
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -25,7 +27,7 @@ app.post('/auth/register', authController.register);
 
 app.post('/auth/login', authController.login);
 
-mongoose.connect('mongodb+srv://Admin:w3mhm580IxnpUJiE@tasked-dypj6.mongodb.net/tasked?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(DB_LINK, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(res => {
     app.listen(3000)
   })
