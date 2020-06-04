@@ -1,12 +1,13 @@
 mat-card {
   min-width: 40vw;
+  max-height: 90vh;
 }
 
 img {
   width: 20vw;
-  max-width: 150px;
+  max-width: 100px;
   border-radius: 125px;
-  border: 2px dashed rgba(137, 43, 226, 0.5);
+  /* border: 2px dashed rgba(137, 43, 226, 0.5); */
   cursor: pointer;
 }
 
@@ -21,3 +22,29 @@ mat-progress-spinner {
 .progress-indicator {
   font-size: large;
 }
+
+.close mat-icon {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+input[matInput] {
+  width: 50px;
+}
+
+/* .noOfTasks {
+  position: relative;
+  left: 100%;
+  border: 1px solid red;
+  border-radius: 125px;
+  width: 30px;
+  height: 30px;
+} */

@@ -1,0 +1,70 @@
+<mat-card fxFlex>
+  <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-title>
+      Hearty welcome to our application...
+    </mat-card-title>
+    <img src="../../../assets/guide/guide.jpg" matCardImage />
+  </mat-card-header>
+  <mat-card-content>
+    <h4>Here are some features we offer...</h4>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span
+          >Create your tasks with customized priority and labels...
+          <mat-hint>(Left navigation bar)</mat-hint>
+        </span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span
+          >Dashboard of all the tasks will be displayed by default. Customize
+          the tasks of today and also the upcoming week..
+          <mat-hint>(Left navigation bar)</mat-hint></span
+        >
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span
+          >Conventional filters and sorting features are also provided. If
+          nothing matches your search credentials the entire tasks will be
+          displayed with color differentiations..</span
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span>
+          View your profile details with your performance based on the
+          completion and expired tasks...
+          <mat-hint>(Top right corner)</mat-hint>
+        </span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span>
+          Customize your application settings in the settings...
+        </span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span>
+          Report or comment about your experience with the application to the
+          developer. Be sure your comments will reach us...
+        </span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <span>
+          <mat-hint>Responsiveness is not majorly concentrated...</mat-hint>
+        </span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-raised-button class="primary" (click)="guideClose()">
+      Okay!!
+    </button>
+  </mat-card-actions>
+</mat-card>

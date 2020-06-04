@@ -23,5 +23,19 @@ img {
 }
 
 .checkbox>* {
+  margin: 5px 0px;
   white-space: normal;
+}
+
+.close mat-icon {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }

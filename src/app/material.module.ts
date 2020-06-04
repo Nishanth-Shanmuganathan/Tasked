@@ -25,10 +25,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRippleModule } from '@angular/material/core';
-// import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   imports: [
@@ -57,7 +56,8 @@ import { MatRippleModule } from '@angular/material/core';
     MatNativeDateModule,
     MatRippleModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -85,7 +85,8 @@ import { MatRippleModule } from '@angular/material/core';
     MatNativeDateModule,
     MatRippleModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ]
 })
 

@@ -10,9 +10,12 @@
   </mat-list-item>
   <mat-list-item>
     <button
+      [ngClass]="{ selected: selected === 'dashboard' }"
       mat-mini-fab
       [matTooltip]="'Dashboard'"
       [matTooltipPosition]="'right'"
+      (click)="selected = 'dashboard'"
+      (click)="fetchTasks()"
     >
       <mat-icon>dashboard</mat-icon>
     </button>
@@ -20,8 +23,11 @@
   <mat-list-item>
     <button
       mat-mini-fab
+      [ngClass]="{ selected: selected === 'today' }"
       [matTooltip]="'Today tasks'"
       [matTooltipPosition]="'right'"
+      (click)="selected = 'today'"
+      (click)="changingTaskView(1)"
     >
       <mat-icon>today</mat-icon>
     </button>
@@ -29,8 +35,11 @@
   <mat-list-item>
     <button
       mat-mini-fab
+      [ngClass]="{ selected: selected === 'upcoming' }"
       [matTooltip]="'Upcoming tasks'"
       [matTooltipPosition]="'right'"
+      (click)="selected = 'upcoming'"
+      (click)="changingTaskView(7)"
     >
       <mat-icon>event</mat-icon>
     </button>

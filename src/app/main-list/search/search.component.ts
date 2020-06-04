@@ -1,3 +1,4 @@
+import { TaskService } from 'src/app/services/task.service';
 import { Search } from './../../models/search.model';
 import { Component, OnInit, ViewChild, ElementRef, DoCheck } from '@angular/core';
 
@@ -18,11 +19,12 @@ export class SearchComponent implements OnInit, DoCheck {
   sortCredentials: string[];
 
   @ViewChild('topPriority') topPriority: ElementRef;
+
   constructor(
+    private taskService: TaskService
   ) { }
 
   ngOnInit(): void {
-    // console.log(this.topPriority);
   }
 
   ngDoCheck() {
@@ -38,6 +40,7 @@ export class SearchComponent implements OnInit, DoCheck {
     this.filterPriority = null;
     this.filterLabel = null;
     this.sortCredentials = null;
+    this.searchTasks();
   }
 
   searchTasks() {
@@ -73,6 +76,7 @@ export class SearchComponent implements OnInit, DoCheck {
       sortPriority,
       sortLabel
     );
-    console.log(searchCredentials);
+    this.taskService.search(searchCredentials);
   }
+
 }

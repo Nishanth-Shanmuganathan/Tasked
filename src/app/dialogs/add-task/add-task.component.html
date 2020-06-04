@@ -1,6 +1,14 @@
 <mat-card fxFlex fxLayout="column">
   <mat-card-header>
     <mat-card-title>Add your new task</mat-card-title>
+    <button
+      class="close"
+      mat-icon-button
+      color="warn"
+      (click)="helperFnCloseModal()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-card-header>
   <mat-card-content>
     <form
@@ -15,7 +23,16 @@
             <mat-form-field fxFill>
               <mat-label>Enter the title</mat-label>
               <input matInput type="text" formControlName="title" />
-              <mat-error>Task title is required</mat-error>
+
+              <mat-hint align="end"
+                >{{ addTask.get("title").value?.length || 0 }}/15</mat-hint
+              >
+              <mat-error *ngIf="addTask.get('title').errors?.required">
+                Task title is required
+              </mat-error>
+              <mat-error *ngIf="!addTask.get('title').errors?.required">
+                Please ensure the character limit...
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -28,7 +45,17 @@
                 type="text"
                 formControlName="description"
               ></textarea>
-              <mat-error>Description is required</mat-error>
+              <mat-hint align="end"
+                >{{
+                  addTask.get("description").value?.length || 0
+                }}/50</mat-hint
+              >
+              <mat-error *ngIf="addTask.get('description').errors?.required">
+                Description is required
+              </mat-error>
+              <mat-error *ngIf="!addTask.get('description').errors?.required">
+                Please ensure the character limit...
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -81,7 +108,7 @@
         </tr>
         <tr>
           <td style="text-align: center;">
-            <button mat-raised-button>Create Task...</button>
+            <button mat-raised-button class="primary">Create Task...</button>
           </td>
         </tr>
       </table>

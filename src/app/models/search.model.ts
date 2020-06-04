@@ -1,17 +1,17 @@
 export class Search {
   constructor(
-    public searchString: string,
-    public filterDeadlineFrom: Date,
-    public filterDeadlineTo: Date,
-    public filterPriorityTop: boolean,
-    public filterPriorityModerate: boolean,
-    public filterPriorityLeast: boolean,
-    public filterLabelPersonal: boolean,
-    public filterLabelWork: boolean,
-    public filterLabelShopping: boolean,
-    public filterLabelOthers: boolean,
-    public sortDeadline: boolean,
-    public sortPriority: boolean,
-    public sortLabel: boolean
+    public searchString: string = '',
+    public filterDeadlineFrom: Date = null,
+    public filterDeadlineTo: Date = null,
+    public filterPriorityTop: boolean = false,
+    public filterPriorityModerate: boolean = false,
+    public filterPriorityLeast: boolean = false,
+    public filterLabelPersonal: boolean = false,
+    public filterLabelWork: boolean = false,
+    public filterLabelShopping: boolean = false,
+    public filterLabelOthers: boolean = false,
+    public sortDeadline: boolean = false,
+    public sortPriority: boolean = false,
+    public sortLabel: boolean = false
   ) { }
 }

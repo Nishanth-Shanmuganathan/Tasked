@@ -46,14 +46,6 @@ div button {
   background-color: blueviolet;
 }
 
-mat-menu {
-  background-color: blueviolet;
-}
-
-::ng-deep .customize {
-  background: rgb(234, 211, 255);
-}
-
 .primary {
   background-color: blueviolet;
   color: blueviolet;

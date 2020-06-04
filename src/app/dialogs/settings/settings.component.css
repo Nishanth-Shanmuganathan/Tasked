@@ -22,7 +22,9 @@ mat-button-toggle {
   border-radius: 125%;
 }
 
-mat-icon {}
+.selected {
+  color: white;
+}
 
 .red {
   background-color: red;
@@ -35,8 +37,8 @@ mat-icon {}
 }
 
 .blue {
-  background-color: indigo;
-  color: indigo;
+  background-color: midnightblue;
+  color: midnightblue;
 }
 
 .violet {
@@ -45,6 +47,23 @@ mat-icon {}
 }
 
 .pink {
-  background-color: rgb(255, 0, 170);
-  color: rgb(255, 0, 170);
+  background-color: deeppink;
+  color: deeppink;
+}
+
+.selected {
+  color: white;
+}
+
+.close mat-icon {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }

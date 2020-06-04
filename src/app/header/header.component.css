@@ -13,22 +13,23 @@ mat-toolbar {
   max-height: 60px;
 }
 
-.profile-pic {
-  width: 50px;
-  min-width: 50px;
-  border-radius: 125px;
-  cursor: pointer;
-}
-
 mat-icon {
   color: black;
 }
 
-::ng-deep .customize,
+/* ::ng-deep .customize,
 mat-menu button {
   background: rgb(234, 211, 255);
 }
 
 button {
   background: rgb(234, 211, 255);
+} */
+
+.profile button[mat-button] mat-icon {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  color: white;
+  font-size: 20px;
 }

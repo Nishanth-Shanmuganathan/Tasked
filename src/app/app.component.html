@@ -1,33 +1,14 @@
-<!-- <nav>
-  <app-header></app-header>
-  <app-side-bar></app-side-bar>
-</nav>
-<main
-  class="task-area"
-  fxFlex="90"
-  fxLayout="row wrap"
-  style="background-color: green;"
->
-  <div class="search">
-    <app-search></app-search>
-  </div>
-  <section fxFlex="50" fxFlex.lt-md="100" style="background-color: red;">
-    <app-main-list></app-main-list>
-  </section>
-  <section fxFlex="40" fxHide.lt-md style="background-color: red;">
-    sub b
-  </section>
-</main> -->
+<!-- No need for routing -->
 <div class="entire-setup">
   <header>
     <app-header></app-header>
   </header>
   <main>
-    <section>
+    <section *ngIf="loggedIn">
       <app-side-bar></app-side-bar>
     </section>
-    <div class="main-list">
-      <app-main-list></app-main-list>
+    <div class="main-list" [ngClass]="{ withoutSidebar: !loggedIn }">
+      <router-outlet></router-outlet>
     </div>
   </main>
 </div>

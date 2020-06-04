@@ -3,14 +3,17 @@
     <img class="logo" src="../../assets/header/tasked_logo.png" alt="" />
   </div>
   <div class="profile" fxLayoutAlign="center center">
-    <img
-      class="profile-pic"
-      src="../../assets/header/img2.JPG"
+    <button
+      mat-button
+      class="primary"
       [matMenuTriggerFor]="menu"
       [matTooltip]="'Menu'"
       [matTooltipPosition]="'left'"
-    />
-    <mat-menu #menu="matMenu" class="customize">
+      *ngIf="loggedIn"
+    >
+      <span> {{ username }} </span><mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu xPosition="before" #menu="matMenu" class="customize">
       <button
         fxFill
         fxLayoutAlign="start center"
@@ -41,7 +44,12 @@
         <span>Contact Us</span>
       </button>
       <mat-divider></mat-divider>
-      <button fxFill fxLayoutAlign="start center" mat-flat-button>
+      <button
+        fxFill
+        fxLayoutAlign="start center"
+        mat-flat-button
+        (click)="logout()"
+      >
         <mat-icon>power_settings_new</mat-icon>
         <span>Logout</span>
       </button>

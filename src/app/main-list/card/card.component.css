@@ -32,7 +32,7 @@ span mat-icon {
 
 mat-card-header {
   margin: 0px;
-  display: inline-block;
+  /* display: inline-block; */
   text-align: justify;
 }
 
@@ -66,4 +66,32 @@ mat-card-content {
   padding: 0;
   border: 0;
   font-size: medium;
+}
+
+
+.dead {
+  background-color: rgb(255, 190, 190);
+  opacity: 0.8;
+}
+
+.completed {
+  background-color: rgb(192, 255, 190);
+  opacity: 0.8;
+}
+
+mat-card-title {
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.top {
+  color: rgb(216, 0, 0);
+}
+
+.moderate {
+  color: orange;
+}
+
+.least {
+  color: blue;
 }

@@ -8,8 +8,14 @@
     fxLayoutGap="10px"
     fxLayout="column"
     fxLayoutAlign="center start"
+    [ngClass]="{
+      dead: task.status === 'dead',
+      completed: task.status === 'completed'
+    }"
   >
-    <button mat-icon-button class="close"><mat-icon>close</mat-icon></button>
+    <button mat-icon-button class="close" (click)="deleteTask(task.id)">
+      <mat-icon>close</mat-icon>
+    </button>
     <div
       fxLayout="row"
       fxLayout.xs="column"
@@ -17,52 +23,94 @@
       fxLayoutAlign="space-between center"
       style="width: 100%;"
     >
-      <mat-card-header
-        fxLayoutGap="2%"
-        fxLayoutAlign="row"
-        fxLayoutAlign.xs="column"
-        fxLayoutAlign="start stretch"
-      >
-        <span fxHide.xs matCardAvatar><mat-icon>whatshot</mat-icon></span>
-        <span fxHide.xs matCardAvatar><mat-icon>work</mat-icon></span>
+      <mat-card-header fxLayoutGap="2%" fxLayout="row" fxLayout.xs="column">
+        <span fxHide.xs matCardAvatar [ngSwitch]="task.label">
+          <mat-icon
+            *ngSwitchCase="'personal'"
+            [ngClass]="{
+              top: task.priority === 'top',
+              moderate: task.priority === 'moderate',
+              least: task.priority === 'least'
+            }"
+          >
+            person
+          </mat-icon>
+          <mat-icon
+            *ngSwitchCase="'work'"
+            [ngClass]="{
+              top: task.priority === 'top',
+              moderate: task.priority === 'moderate',
+              least: task.priority === 'least'
+            }"
+          >
+            work
+          </mat-icon>
+          <mat-icon
+            *ngSwitchCase="'shopping'"
+            [ngClass]="{
+              top: task.priority === 'top',
+              moderate: task.priority === 'moderate',
+              least: task.priority === 'least'
+            }"
+          >
+            local_mall
+          </mat-icon>
+          <mat-icon
+            *ngSwitchCase="'others'"
+            [ngClass]="{
+              top: task.priority === 'top',
+              moderate: task.priority === 'moderate',
+              least: task.priority === 'least'
+            }"
+          >
+            pie_chart
+          </mat-icon>
+        </span>
         <mat-card-title>
-          Wake up early from now onwards i ll be no fucking crazy
+          {{ task.title }}
         </mat-card-title>
 
-        <mat-card-subtitle fxHide.gt-xs>Priority , Label </mat-card-subtitle>
+        <mat-card-subtitle fxHide.gt-xs>
+          {{ task.priority | titlecase }} , {{ task.label | titlecase }}
+        </mat-card-subtitle>
       </mat-card-header>
     </div>
     <mat-card-content
+      *ngIf="task.status === 'active'"
+      fxFill
       fxFlex="100"
       fxLayout="column"
       fxLayout.gt-sm="row wrap"
       fxLayoutAlign.gt-sm="space-between center"
     >
-      <p fxFlex fxFlex.gt-sm="68">
-        Please wake up early in the morning Please wake up early in the morning
-        Please wake up early in the morning Please wake up early in the morning
-        Please wake up early in the morning
+      <p fxFlex fxFlex.gt-sm="68" fxHide.xs>
+        {{ task.description }}
       </p>
 
       <mat-card-actions
         fxFlex
         fxFlex.gt-sm="30"
-        fxLayout.gt-sm="row"
-        fxLayout="row wrap"
-        fxLayoutAlign=" center center"
+        fxLayout="row"
+        fxLayoutAlign="end center"
+        fxLayoutAlign.xs="start center"
+        style="padding-right: 10px;"
       >
-        <button mat-raised-button class="primary">Completed</button>
-        <button mat-raised-button color="warn">Postpone</button>
+        <button
+          mat-raised-button
+          class="primary"
+          (click)="updateCompletedStatus(task.id)"
+        >
+          Completed
+        </button>
       </mat-card-actions>
       <mat-progress-bar
         fxFlex.gt-sm="100"
         mode="determinate"
-        value="40"
+        [value]="value"
       ></mat-progress-bar>
     </mat-card-content>
     <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="deadline">
-      <span fxFlex="50"><b>Deadline:</b> 123344</span>
-      <span fxFlex="50">2 days left</span>
+      <span fxFlex="50"><b>Deadline:</b> {{ task.deadline | date }}</span>
     </div>
   </mat-card>
 </div>

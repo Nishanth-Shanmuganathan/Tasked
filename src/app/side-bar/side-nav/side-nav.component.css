@@ -27,3 +27,11 @@ mat-list-item:nth-child(1) {
   font-size: 25px;
   font-weight: bold;
 }
+
+.selected {
+  background-color: blueviolet !important;
+}
+
+.selected mat-icon {
+  color: white !important;
+}

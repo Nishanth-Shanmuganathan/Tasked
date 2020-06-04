@@ -10,3 +10,20 @@ table {
 mat-error {
   font-size: small;
 }
+
+.close mat-icon {
+  font-size: medium;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+mat-hint {
+  font-size: 14px
+}

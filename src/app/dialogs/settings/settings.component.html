@@ -1,5 +1,13 @@
 <mat-card>
   <mat-card-header>
+    <button
+      class="close"
+      mat-icon-button
+      color="warn"
+      (click)="helperFnCloseModal()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
     <mat-card-title fxFlex fxLayoutAlign="start center">
       <mat-icon>settings</mat-icon>
       <h3>Settings</h3>
@@ -8,27 +16,47 @@
   <mat-card-content>
     <mat-list>
       <div mat-subheader><span>Notifications</span></div>
-      <mat-selection-list>
-        <mat-list-option>Make an alarm</mat-list-option>
-        <mat-list-option>Reach to inbox</mat-list-option>
-        <mat-list-option>Just pop it up</mat-list-option>
+      <mat-selection-list [(ngModel)]="notify" name="notify">
+        <mat-list-option value="alarm">Make an alarm</mat-list-option>
+        <mat-list-option value="mail">Reach to inbox</mat-list-option>
+        <mat-list-option value="popup">Just pop it up</mat-list-option>
       </mat-selection-list>
       <div mat-subheader><span>Timings</span></div>
       <mat-list-item>
         <form>
           <mat-form-field>
             <mat-label>Hrs..</mat-label>
-            <input matInput type="number" min="0" max="23" />
+            <input
+              matInput
+              [(ngModel)]="hours"
+              name="hours"
+              type="number"
+              min="0"
+              max="23"
+            />
           </mat-form-field>
           <mat-form-field>
             <mat-label>Mins..</mat-label>
-            <input matInput type="number" min="0" max="59" />
+            <input
+              matInput
+              [(ngModel)]="minutes"
+              name="minutes"
+              type="number"
+              min="0"
+              max="59"
+            />
           </mat-form-field>
           <mat-form-field>
             <mat-label>Secs..</mat-label>
-            <input matInput type="number" min="0" max="59" />
+            <input
+              matInput
+              [(ngModel)]="seconds"
+              name="hours"
+              type="number"
+              min="0"
+              max="59"
+            />
           </mat-form-field>
-          <button mat-raised-button class="primary">Okay!!</button>
         </form>
       </mat-list-item>
       <div mat-subheader><span>Theme</span></div>
@@ -39,31 +67,36 @@
           fxLayout="row"
           fxLayoutAlign="space-evenly center"
         >
-          <button mat-icon-button>
-            <mat-icon class="red">fiber_manual_record</mat-icon>
+          <button mat-icon-button (click)="changeTheme('red')">
+            <mat-icon class="red">stop_circle</mat-icon>
           </button>
-          <button mat-icon-button>
-            <mat-icon class="green">fiber_manual_record</mat-icon>
+          <button mat-icon-button (click)="changeTheme('green')">
+            <mat-icon class="green">stop_circle</mat-icon>
           </button>
-          <button mat-icon-button>
-            <mat-icon class="blue">fiber_manual_record</mat-icon>
+          <button mat-icon-button (click)="changeTheme('indigo')">
+            <mat-icon class="blue">stop_circle</mat-icon>
           </button>
-          <button mat-icon-button>
-            <mat-icon class="violet">fiber_manual_record</mat-icon>
+          <button mat-icon-button (click)="changeTheme('blueviolet')">
+            <mat-icon class="violet selected">check</mat-icon>
           </button>
-          <button mat-icon-button>
-            <mat-icon class="pink">fiber_manual_record</mat-icon>
+          <button mat-icon-button (click)="changeTheme('deeppink')">
+            <mat-icon class="pink">stop_circle</mat-icon>
           </button>
         </div>
       </mat-list-item>
       <div mat-subheader><span>Message</span></div>
       <mat-list-item>
-        <mat-slide-toggle
+        <mat-slide-toggle [(ngModel)]="advertise"
           ><span
             >Get updated with our updates via mail...</span
           ></mat-slide-toggle
         >
       </mat-list-item>
     </mat-list>
+    <mat-card-actions>
+      <button mat-raised-button class="primary" (click)="saveSettings()">
+        Save settings!!
+      </button>
+    </mat-card-actions>
   </mat-card-content>
 </mat-card>
