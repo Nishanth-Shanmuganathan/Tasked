@@ -10,6 +10,8 @@ import { Task } from '../models/task.model';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { environment } from './../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -55,7 +57,7 @@ export class TaskService {
 
 
   fetchTasks() {
-    this.http.get<{ message: string, data: any[] }>('http://localhost:3000/fetch/' + this.authService.id)
+    this.http.get<{ message: string, data: any[] }>(environment.SERVER + 'fetch/' + this.authService.id)
       .pipe(map(res => {
         return res.data.map(ele => ({ ...ele, id: ele._id }));
       }))
@@ -68,7 +70,7 @@ export class TaskService {
   }
 
   addTasks(task: Task, id: string): Observable<any> {
-    return this.http.post<{ message: string, data: {} }>('http://localhost:3000/add', { task, id })
+    return this.http.post<{ message: string, data: {} }>(environment.SERVER + 'add', { task, id })
       .pipe(tap(task => {
         const alteredTask: Task = { ...task.data, id: task.data._id };
         this.tasks.push(alteredTask);
@@ -81,7 +83,7 @@ export class TaskService {
     userDetails: { username: string, email: string }
   ) {
     this.http.post<{ message: string, data: { comment: string, issues?: string[] } }>
-      ('http://localhost:3000/add-comment', { comments, userDetails })
+      (environment.SERVER + 'add-comment', { comments, userDetails })
       .subscribe(res => {
         this.dialog.closeAll();
       },
@@ -90,7 +92,7 @@ export class TaskService {
   }
 
   addSettings(settings: Settings, email: string) {
-    this.http.post('http://localhost:3000/settings', { settings, email })
+    this.http.post(environment.SERVER + '/settings', { settings, email })
       .subscribe(res => {
         this.dialog.closeAll();
       },
@@ -101,7 +103,7 @@ export class TaskService {
   deleteTasks(id: string) {
     const index = this.tasks.findIndex(task => task.id === id);
     this.tasks.splice(index, 1);
-    this.http.delete('http://localhost:3000/delete/' + this.authService.id + '/' + id)
+    this.http.delete(environment.SERVER + 'delete/' + this.authService.id + '/' + id)
       .subscribe(res => {
         this.tasksAltered.next(this.tasks);
       },
@@ -112,7 +114,7 @@ export class TaskService {
   updateTasks(id: string, status: string) {
     this.tasks.map(task => task.status = task.id === id ? status : task.status);
     const body = { userId: this.authService.id, id, status };
-    this.http.patch('http://localhost:3000/update', body)
+    this.http.patch(environment.SERVER + 'update', body)
       .subscribe(res => {
         this.tasksAltered.next(this.tasks);
       },

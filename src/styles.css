@@ -66,12 +66,18 @@ mat-icon {
 }
 
 .snackBar {
+  width: 50vw !important;
   background-color: white !important;
   color: grey !important;
 }
 
-.snackBar button {
-  background-color: blueviolet !important;
-  color: white !important;
 
+.snack-complete button {
+  background-color: green !important;
+  color: white !important;
+}
+
+.snack-delete button {
+  background-color: red !important;
+  color: white !important;
 }

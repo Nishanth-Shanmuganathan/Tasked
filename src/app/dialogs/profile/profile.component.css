@@ -4,11 +4,10 @@ mat-card {
 }
 
 img {
-  width: 20vw;
-  max-width: 100px;
+  width: 100px;
   border-radius: 125px;
-  /* border: 2px dashed rgba(137, 43, 226, 0.5); */
   cursor: pointer;
+  padding-bottom: 10px;
 }
 
 table th {

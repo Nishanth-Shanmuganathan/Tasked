@@ -31,7 +31,8 @@
                 Task title is required
               </mat-error>
               <mat-error *ngIf="!addTask.get('title').errors?.required">
-                Please ensure the character limit...
+                Please don't use special characters and ensure the character
+                limit...
               </mat-error>
             </mat-form-field>
           </td>
@@ -45,16 +46,8 @@
                 type="text"
                 formControlName="description"
               ></textarea>
-              <mat-hint align="end"
-                >{{
-                  addTask.get("description").value?.length || 0
-                }}/50</mat-hint
-              >
-              <mat-error *ngIf="addTask.get('description').errors?.required">
+              <mat-error>
                 Description is required
-              </mat-error>
-              <mat-error *ngIf="!addTask.get('description').errors?.required">
-                Please ensure the character limit...
               </mat-error>
             </mat-form-field>
           </td>

@@ -25,8 +25,8 @@ export class AddTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.addTask = new FormGroup({
-      title: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]{1,15}')]),
-      description: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]{1,50}')]),
+      title: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]{1,25}')]),
+      description: new FormControl(null, [Validators.required]),
       deadline: new FormControl(null, [Validators.required]),
       createdAt: new FormControl(null),
       priority: new FormControl(null, [Validators.required]),

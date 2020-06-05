@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  SERVER: 'https://tasked-hackerearth.herokuapp.com/'
 };

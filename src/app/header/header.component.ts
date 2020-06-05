@@ -1,4 +1,3 @@
-import { GuideComponent } from './../dialogs/guide/guide.component';
 import { AuthService } from './../services/auth.service';
 import { ContactComponent } from './../dialogs/contact/contact.component';
 import { SettingsComponent } from './../dialogs/settings/settings.component';
@@ -30,7 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openProfileDialog() {
-    this.matDialog.open(GuideComponent, { disableClose: true });
+    this.matDialog.open(ProfileComponent, { disableClose: true });
   }
 
   openSettingsDialog() {

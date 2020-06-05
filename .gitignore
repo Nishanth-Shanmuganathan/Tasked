@@ -9,6 +9,15 @@
 
 # dependencies
 /node_modules
+/backend/node_modules
+/backend/tasked
+/backend/tasked.rar
+/backend/Procfile
+/backend/.gitignore
+/backend/package-lock.json
+
+
+
 
 # profiling files
 chrome-profiler-events*.json

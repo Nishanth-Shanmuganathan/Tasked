@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Auth } from './../models/auth.model';
+
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +27,7 @@ export class AuthService {
   public registerUser(auth: Auth) {
 
     return this.http.post<{ message: string, token: string, data: { username: string, email: string, _id: string } }>
-      ('http://localhost:3000/auth/register', auth)
+      (environment.SERVER + 'register', auth)
       .pipe(tap(res => {
         this.token = res.token;
         localStorage.setItem('token', this.token);
@@ -38,7 +40,7 @@ export class AuthService {
 
   public loginUser(auth: Auth) {
     return this.http.post<{ message: string, token: string, data: { email: string, username: string, _id: string } }>
-      ('http://localhost:3000/auth/login', auth)
+      (environment.SERVER + 'login', auth)
       .pipe(tap(res => {
         this.token = res.token;
         this.username = res.data.username;

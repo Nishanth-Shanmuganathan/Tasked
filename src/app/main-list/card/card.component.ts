@@ -48,12 +48,12 @@ export class CardComponent implements OnInit, OnDestroy {
 
   updateCompletedStatus(id: string) {
     const snackBarRef = this.snackBar.open('Do this task got completed?',
-      'Yes!!',
+      'Completed',
       {
         duration: 5000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
-        panelClass: 'snackBar',
+        panelClass: ['snackBar', 'snack-complete'],
       });
     snackBarRef.afterDismissed().subscribe(info => {
       if (info.dismissedByAction === true) {
@@ -64,12 +64,12 @@ export class CardComponent implements OnInit, OnDestroy {
 
   deleteTask(id: string) {
     const snackBarRef = this.snackBar.open('Are you sure want to delete this task permanently?',
-      'Yeah! Sure..',
+      'Confirm..',
       {
         duration: 5000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
-        panelClass: 'snackBar'
+        panelClass: ['snackBar', 'snack-delete']
       });
     snackBarRef.afterDismissed().subscribe(info => {
       if (info.dismissedByAction === true) {

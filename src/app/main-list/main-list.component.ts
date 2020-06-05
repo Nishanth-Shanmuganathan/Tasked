@@ -25,7 +25,7 @@ export class MainListComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('new-user')) {
-      this.dialog.open(GuideComponent);
+      this.dialog.open(GuideComponent, { disableClose: true });
     }
     this.tasks = this.taskService.getTasks();
     this.activeTasks = this.tasks.filter(task => task.status === 'active');
