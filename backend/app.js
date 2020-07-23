@@ -34,11 +34,13 @@ app.post('/register', authController.register)
 
 app.post('/login', authController.login)
 
+app.use('/', express.static(path.join(__dirname, 'tasked')))
+
 app.use((req, res, next) => {
   res.sendfile(path.join(__dirname, 'tasked', 'index.html'))
 })
 
-mongoose.connect(process.env.DB_LINK, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(process.env.DB_LINK + "://" + process.env.DB + ":" + process.env.PASS + "@tasked-dypj6.mongodb.net/tasked?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(res => {
     return app.listen(process.env.PORT || 3000)
   })
