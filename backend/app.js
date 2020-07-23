@@ -5,16 +5,15 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const compression = require('compression')
 const helmet = require('helmet')
-// const morgan = require('morgan')
+const cors = require('cors')
 
 const taskController = require('./controller/task.controller')
 const authController = require('./controller/auth.controller');
 
-const { DB_LINK } = require('./env')
-
 const app = express();
 app.use(helmet())
 app.use(compression())
+app.use(cors())
 // app.use(morgan('combined', { stream: accessLogStream }))
 
 app.use(bodyParser.json());
@@ -39,7 +38,13 @@ app.use((req, res, next) => {
   res.sendfile(path.join(__dirname, 'tasked', 'index.html'))
 })
 
-mongoose.connect(DB_LINK, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_LINK, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(res => {
-    app.listen(process.env.PORT || 3000)
+    return app.listen(process.env.PORT || 3000)
+  })
+  .then(res => {
+    console.log('Listening on ' + process.env.PORT);
+  })
+  .catch(err => {
+    console.log(err);
   })

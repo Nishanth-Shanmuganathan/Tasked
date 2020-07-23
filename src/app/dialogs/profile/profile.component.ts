@@ -32,7 +32,12 @@ export class ProfileComponent implements OnInit {
     const success = this.details.completed / this.details.total;
     const failed = this.details.dead / this.details.total;
     const active = this.details.active / this.details.total * 0.1;
-    this.value = (success + active - failed) * 100;
+    const value = (success + active - failed) * 100;
+    if (value <= 0) {
+      this.value = 0;
+    } else {
+      this.value = value;
+    }
   }
 
   helperFnCloseModal() {

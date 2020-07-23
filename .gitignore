@@ -14,8 +14,7 @@
 /backend/tasked.rar
 /backend/Procfile
 /backend/.gitignore
-/backend/package-lock.json
-/backend/env.js
+/backend/config
 
 
 

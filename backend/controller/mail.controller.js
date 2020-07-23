@@ -1,8 +1,7 @@
 const sgMail = require('@sendgrid/mail');
 
-const { API_KEY } = require('./../env')
 
-sgMail.setApiKey(API_KEY)
+sgMail.setApiKey(process.env.API_KEY)
 
 exports.commentMail = (username, email, comment) => {
   sgMail.send({
