@@ -5,10 +5,10 @@
   <div class="content">
     <app-card *ngFor="let task of activeTasks" [task]="task"></app-card>
     <mat-divider *ngIf="activeTasks.length"></mat-divider>
-    <app-card *ngFor="let task of deadTasks" [task]="task"></app-card>
-    <mat-divider *ngIf="deadTasks.length"></mat-divider>
     <app-card *ngFor="let task of completedTasks" [task]="task"></app-card>
     <mat-divider *ngIf="completedTasks.length"></mat-divider>
+    <app-card *ngFor="let task of deadTasks" [task]="task"></app-card>
+    <mat-divider *ngIf="deadTasks.length"></mat-divider>
 
     <div class="empty" *ngIf="empty">
       <img src="../../assets/utils/nothing.jpg" width="200px" height="200px" />

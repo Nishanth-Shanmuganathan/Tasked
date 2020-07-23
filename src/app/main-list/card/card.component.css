@@ -86,10 +86,7 @@ mat-card-title {
 }
 
 .completed {
-  background-image: url('../../../assets/utils/completed.png');
-  background-size: 190px 70px;
-  background-repeat: no-repeat;
-  background-position: 90% 50%;
+
   font-weight: bold;
   border: 2px solid green;
   color: green;
@@ -97,15 +94,10 @@ mat-card-title {
 
 .completed mat-card-header mat-card-title,
 .completed mat-card-header mat-card-subtitle {
-  font-weight: bold;
   color: green;
 }
 
 .dead {
-  background-image: url('../../../assets/utils/expired.png');
-  background-size: 180px 50px;
-  background-repeat: no-repeat;
-  background-position: 90% 50%;
   font-weight: bold;
   border: 2px solid #d10000c5;
   color: #d10000c5;
@@ -113,6 +105,5 @@ mat-card-title {
 
 .dead mat-card-header mat-card-title,
 .dead mat-card-header mat-card-subtitle {
-  font-weight: bold;
   color: #d10000c5;
 }

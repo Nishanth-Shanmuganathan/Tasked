@@ -70,8 +70,13 @@
           {{ task.title }}
         </mat-card-title>
 
-        <mat-card-subtitle fxHide.gt-xs>
-          {{ task.priority | titlecase }} , {{ task.label | titlecase }}
+        <mat-card-subtitle>
+          <p fxHide.gt-xs>
+            {{ task.priority | titlecase }} , {{ task.label | titlecase }}
+          </p>
+
+          <p *ngIf="task.status === 'completed'"><b>(Task completed)</b></p>
+          <p *ngIf="task.status === 'dead'"><b>(Task expired)</b></p>
         </mat-card-subtitle>
       </mat-card-header>
     </div>
@@ -92,7 +97,7 @@
         fxFlex.gt-sm="30"
         fxLayout="row"
         fxLayoutAlign="end center"
-        fxLayoutAlign.xs="start center"
+        fxLayoutAlign.xs="center center"
         style="padding-right: 10px;"
       >
         <button
