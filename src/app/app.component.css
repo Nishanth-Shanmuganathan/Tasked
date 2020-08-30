@@ -3,7 +3,7 @@
   height: 100%;
 }
 
-section {
+/* section {
   width: 100%;
   height: 100%;
   background-color: rgba(137, 43, 226, 0.1);
@@ -19,7 +19,6 @@ section {
   left: 60px;
   overflow: hidden;
 
-  /* background-color: rgba(137, 43, 226, 0.1); */
 }
 
 .withoutSidebar {
@@ -27,4 +26,24 @@ section {
   min-width: 100vw;
   width: 100%;
 
+} */
+main {
+  /* width: calc(100% - 60px);
+  max-width: calc(100vw - 60px); */
+  min-width: 100vw;
+  width: 100%;
+  height: fit-content;
+  min-height: 90vh;
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  display: flex;
+}
+
+.main-list {
+  width: 100%;
+}
+
+.backdrop {
+  filter: blur(4px);
 }

@@ -1,7 +1,7 @@
 import { AuthService } from './../services/auth.service';
 import { ContactComponent } from './../dialogs/contact/contact.component';
 import { SettingsComponent } from './../dialogs/settings/settings.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ProfileComponent } from './../dialogs/profile/profile.component';
@@ -12,7 +12,8 @@ import { ProfileComponent } from './../dialogs/profile/profile.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  @Output() openSidebar = new EventEmitter<boolean>();
+  sidebarOpen = false;
   loggedIn = false;
   username: string;
   constructor(
@@ -25,9 +26,12 @@ export class HeaderComponent implements OnInit {
     this.authService.authSubject.subscribe(res => {
       this.loggedIn = !!res[0];
       this.username = res[1];
-    })
+    });
   }
-
+  openSideBar() {
+    this.sidebarOpen = !this.sidebarOpen;
+    this.openSidebar.emit(this.sidebarOpen);
+  }
   openProfileDialog() {
     this.matDialog.open(ProfileComponent, { disableClose: true });
   }

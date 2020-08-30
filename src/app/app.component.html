@@ -1,13 +1,19 @@
 <!-- No need for routing -->
 <div class="entire-setup">
   <header>
-    <app-header></app-header>
+    <app-header (openSidebar)="toggleSideBar($event)"></app-header>
   </header>
   <main>
-    <section *ngIf="loggedIn">
+    <section *ngIf="loggedIn && openSideBar">
       <app-side-bar></app-side-bar>
     </section>
-    <div class="main-list" [ngClass]="{ withoutSidebar: !loggedIn }">
+    <div
+      class="main-list"
+      [ngClass]="{
+        withoutSidebar: !loggedIn,
+        backdrop: openSideBar && mobileView
+      }"
+    >
       <router-outlet></router-outlet>
     </div>
   </main>

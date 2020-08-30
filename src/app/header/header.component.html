@@ -1,9 +1,19 @@
 <mat-toolbar class="primary" fxLayoutAlign="space-between center">
   <div class="brand" fxLayoutAlign="center center">
+    <button
+      fxShow.lt-sm
+      fxHide.gt-xs
+      mat-icon-button
+      *ngIf="loggedIn"
+      (click)="openSideBar()"
+    >
+      <mat-icon class="user">menu</mat-icon>
+    </button>
     <img class="logo" src="../../assets/header/tasked_logo.png" alt="" />
   </div>
   <div class="profile" fxLayoutAlign="center center">
     <button
+      fxHide.lt-sm
       mat-button
       class="primary"
       #menuTrigger="matMenuTrigger"
@@ -13,6 +23,18 @@
       *ngIf="loggedIn"
     >
       <span> {{ username }} </span><mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <button
+      fxShow.lt-sm
+      fxHide.gt-xs
+      mat-icon-button
+      #menuTrigger="matMenuTrigger"
+      [matMenuTriggerFor]="menu"
+      [matTooltip]="'Menu'"
+      [matTooltipPosition]="'left'"
+      *ngIf="loggedIn"
+    >
+      <mat-icon class="user">person</mat-icon>
     </button>
     <mat-menu xPosition="before" #menu="matMenu" class="customize">
       <button
